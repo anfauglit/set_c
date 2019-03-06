@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include "setlib.h"
 #include <stdlib.h>
+#include <time.h>
 
 int main (void)
 {
-	set* A = malloc (sizeof(set));
-	int test[] = {0,1,2,3,4,5,6,7,8,9};
+	srand(time(NULL));
 
-	A->size = 10;
-	A->set = test;
+	set* A = rnd_int_array(10); 
+	set* B = rnd_int_array(10);
 
 	printArray (A);
 
-	free(A);
+	printArray (B);
+
+	free_set(A);
+	free_set(B);
 
 	return 0;
 }
